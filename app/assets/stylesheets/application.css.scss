@@ -11,3 +11,109 @@
  *= require_self
  *= require_tree .
  */
+
+@import "common/colors";
+@import "common/text";
+
+.container {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.logo {
+  float: left;
+  width: 20%;
+  height: 65px;
+
+  background: $green;
+
+  img {
+    padding-top: 15px;
+    padding-left: 20px;
+    height: 40px;
+  }
+}
+
+.languages {
+  @include text-languages;
+
+  text-align: right;
+  height: 20px;
+}
+
+.menu {
+  @include text-menu;
+
+  float: right;
+  width: 79%;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px $grey;
+
+  > a {
+    display: inline-block;
+    padding: 5px 5px;
+
+    &:hover {
+      background-color: $light-green;
+      color: $white;
+    }
+  }
+}
+
+.search {
+  @include text-search;
+  float: right;
+  padding-top: 5px;
+
+  input {
+    border: solid 1px $grey;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    height: 23px;
+    outline: none;
+  }
+
+  input[type="search"] {
+    -webkit-appearance: textfield;
+    appearance: textfield;
+  }
+
+  input[type="submit"] {
+    background: $light-green image_url('magnifying_glass.png') no-repeat center center;
+    width: 23px;
+    text-indent: 9999px;
+    cursor: pointer;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+.menu-bottom {
+  @include text-menu-bottom;
+
+  position: relative;
+  border-top: solid 1px $grey;
+  border-bottom: solid 1px $grey;
+  padding: 4px 10px;
+
+  .follow-us {
+    position: absolute;
+    right: 0;
+    top: 11px;
+    background-color: $white;
+    padding: 0 10px;
+
+    img {
+      vertical-align: bottom;
+    }
+  }
+}
+
+.copyright {
+  @include text-copyright;
+  padding: 4px 10px;
+}

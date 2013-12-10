@@ -1,14 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AlgaeSite</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+    <title>AlgaeSite</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Open+Sans:400,700,300&subset=latin,greek-ext" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+    <div class="logo">
+        <%= link_to image_tag('logo.png', width: 165, height: 40), root_path %>
+    </div>
 
+    <nav class="languages">
+        <a href="#">GR</a>
+        <a href="#">EN</a>
+    </nav>
+
+    <nav class="menu">
+        <a href="#">Η εταιρία</a>
+        <a href="#">Οικονομικά στοιχεία</a>
+        <a href="#">Προϊόντα</a>
+        <a href="#">Πιστοποιήσεις</a>
+        <a href="#">Επικοινωνία</a>
+        <a href="#">Ευκαιρίες καριέρας</a>
+
+        <div class="search">
+            <input type="search" />
+            <input type="submit" value="Search" />
+        </div>
+    </nav>
+
+    <div class="clear"></div>
+
+    <%= yield %>
+
+    <div class="clear"></div>
+
+    <nav class="menu-bottom">
+        <a href="#">Sitemap</a>
+        /
+        <a href="#">Contact</a>
+        /
+        <a href="#">Όροι χρήσης</a>
+
+        <div class="follow-us">
+            follow us:
+            <%= link_to image_tag('facebook.png', width: 25, height: 25), '#' %>
+            <%= link_to image_tag('twitter.png', width: 25, height: 25), '#' %>
+        </div>
+    </nav>
+
+
+    <div class="copyright">
+        Copyright &copy; 2013, ALGAE FARMS, All rights reserved.
+    </div>
+</div>
 </body>
 </html>
