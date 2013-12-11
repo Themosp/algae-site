@@ -39,16 +39,19 @@
   }
 
   &.slide-01 {
+    background-size: 917px 550px;
     background-image: image_url("slide_01.jpg");
     background-position: -450px;
   }
 
   &.slide-02 {
+    background-size: 825px 550px;
     background-image: image_url("slide_02.jpg");
-    background-position: -230px;
+    background-position: -155px;
   }
 
   &.slide-03 {
+    background-size: 650px 550px;
     background-image: image_url("slide_03.jpg");
     background-position: -230px;
   }
