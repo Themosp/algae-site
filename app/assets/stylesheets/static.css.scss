@@ -39,20 +39,39 @@
   }
 
   &.slide-01 {
-    background-size: 917px 550px;
+    background-size: 810px 550px;
     background-image: image_url("slide_01.jpg");
-    background-position: -450px;
+    background-position: -400px;
   }
 
   &.slide-02 {
-    background-size: 825px 550px;
+    background-size: 810px 550px;
     background-image: image_url("slide_02.jpg");
-    background-position: -155px;
+    background-position: -190px;
   }
 
   &.slide-03 {
-    background-size: 650px 550px;
+    background-size: 810px 550px;
     background-image: image_url("slide_03.jpg");
-    background-position: -230px;
+    background-position: -180px;
+  }
+}
+
+.content {
+  @include text-body;
+
+  h1 {
+    @include text-heading;
+  }
+
+  height: 550px;
+  width: 33%;
+  float: left;
+  display: none;
+
+  overflow-y: auto;
+
+  &.last {
+    margin-left: 1%;
   }
 }

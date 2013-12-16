@@ -57,6 +57,20 @@
   @include link;
 }
 
+@mixin text-heading {
+  @include font-helvetica;
+  font-size: 20px;
+  color: $green;
+  @include link;
+}
+
+@mixin text-body {
+  @include font-helvetica-light;
+  font-size: 15px;
+  color: $grey;
+  @include link;
+}
+
 @mixin text-title {
   @include font-helvetica-neue;
   font-weight: bold;
