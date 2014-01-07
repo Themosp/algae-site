@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+ready = ->
   slides = $ '.main-slide'
 
   slides.children('a').on 'click', ->
@@ -28,3 +28,6 @@ $(document).ready ->
         content.animate height: 'toggle', 'slow'
 
     false
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
