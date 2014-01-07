@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
-  slides = $ '.main-slide'
+  slides = $ '.main-slide.expandable'
 
   slides.children('a').on 'click', ->
     element = $ this

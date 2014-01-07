@@ -1,0 +1,38 @@
+<div class="body-container">
+    <div class="main-slide"
+         style="background-image: url(<%= image_url 'slide_01.jpg' %>); width: 66%; margin-right: 1%;">
+        <a href="#">
+            <span class="table-cell">Sitemap</span>
+        </a>
+    </div>
+
+    <div class="content" style="display: block">
+        <h1>Sitemap</h1>
+
+        <ul>
+            <li>
+                <%= link_to 'Η εταιρία', root_path %>
+                <ul>
+                    <li>Καλώς ήρθατε στην Algae farms</li>
+                    <li>Το όραμα μας</li>
+                    <li>Οι εγκαταστάσεις</li>
+                </ul>
+            </li>
+            <li><%= link_to 'Οικονομικά στοιχεία', financial_path %></li>
+            <li><%= link_to 'Προϊόντα', products_path %>
+                <ul>
+                    <li>Pellet άλγης</li>
+                    <li>Λάδι άλγης</li>
+                    <li>Briquettes άλγης</li>
+                    <li>Συχνές ερωτήσεις</li>
+                </ul>
+            </li>
+            <li><%= link_to 'Πιστοποιήσεις', certifications_path %></li>
+            <li><%= link_to 'Επικοινωνία', contact_path %></li>
+            <li><%= link_to 'Ευκαιρίες καριέρας', careers_path %></li>
+            <li><%= link_to 'Sitemap', sitemap_path %></li>
+            <li><%= link_to 'Cookies', cookies_path %></li>
+            <li><%= link_to 'Όροι χρήσης', terms_path %></li>
+        </ul>
+    </div>
+</div>

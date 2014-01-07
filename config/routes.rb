@@ -1,5 +1,18 @@
 AlgaeSite::Application.routes.draw do
 
+  scope module: :static do
+    get :index
+    get :financial
+    get :products
+    get :certifications
+    get :contact
+    get :careers
+
+    get :sitemap
+    get :terms
+    get :cookies
+  end
+
   root 'static#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

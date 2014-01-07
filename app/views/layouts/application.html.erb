@@ -20,12 +20,12 @@
     </nav>
 
     <nav class="menu">
-        <a href="#">Η εταιρία</a>
-        <a href="#">Οικονομικά στοιχεία</a>
-        <a href="#">Προϊόντα</a>
-        <a href="#">Πιστοποιήσεις</a>
-        <a href="#">Επικοινωνία</a>
-        <a href="#">Ευκαιρίες καριέρας</a>
+        <%= link_to 'Η εταιρία', root_path %>
+        <%= link_to 'Οικονομικά στοιχεία', financial_path %>
+        <%= link_to 'Προϊόντα', products_path %>
+        <%= link_to 'Πιστοποιήσεις', certifications_path %>
+        <%= link_to 'Επικοινωνία', contact_path %>
+        <%= link_to 'Ευκαιρίες καριέρας', careers_path %>
 
         <div class="search">
             <input type="search" />
@@ -40,11 +40,11 @@
     <div class="clear"></div>
 
     <nav class="menu-bottom">
-        <a href="#">Sitemap</a>
+        <%= link_to 'Sitemap', sitemap_path %>
         /
-        <a href="#">Contact</a>
+        <%= link_to 'Cookies', cookies_path %>
         /
-        <a href="#">Όροι χρήσης</a>
+        <%= link_to 'Όροι χρήσης', terms_path %>
 
         <div class="follow-us">
             follow us:
