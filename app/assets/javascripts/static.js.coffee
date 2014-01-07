@@ -10,10 +10,6 @@ ready = ->
     content = slide.next '.content'
     panel = content.next '.content-panel'
 
-    panel.children('a').on 'click', ->
-      slide_toggle element
-      false
-
     if slide.is '.active'
       inactive_background_position_x = slide.data 'inactive-background-position-x'
       inactive_width = slide.data 'inactive-width'
@@ -33,10 +29,18 @@ ready = ->
         content.animate height: 'toggle', 'slow', ->
           panel.show 'fast'
 
+  slides.each (index, element) ->
+    slide = $(element)
+    content = slide.next '.content'
+    panel = content.next '.content-panel'
 
-  slides.children('a').on 'click', ->
-    slide_toggle $(this)
-    false
+    slide.children('a').on 'click', ->
+      slide_toggle slide
+      false
+
+    panel.children('a').on 'click', ->
+      slide_toggle slide
+      false
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
