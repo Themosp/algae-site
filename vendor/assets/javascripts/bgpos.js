@@ -1,5 +1,7 @@
 /*! Copyright (c) 2010 Brandon Aaron (http://brandonaaron.net)
  * Licensed under the MIT License (LICENSE.txt).
+ *
+ * Shamelessly stolen from https://github.com/brandonaaron/jquery-cssHooks/blob/master/bgpos.js
  */
 (function($) {
     // backgroundPosition[X,Y] get hooks
