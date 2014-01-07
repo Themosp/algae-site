@@ -15,10 +15,10 @@ ready = ->
       inactive_width = slide.data 'inactive-width'
       slide.removeClass 'active'
 
-      panel.hide 'fast', ->
-        content.animate height: 'toggle', 'slow', ->
-          slide.animate width: inactive_width, backgroundPositionX: inactive_background_position_x, 'slow'
-          slides.not(slide).animate width: 'toggle', 'slow'
+      panel.hide 'fast'
+      content.animate height: 'toggle', 'slow', ->
+        slide.animate width: inactive_width, backgroundPositionX: inactive_background_position_x, 'slow'
+        slides.not(slide).animate width: 'toggle', 'slow'
     else
       active_background_position_x = slide.data 'active-background-position-x'
       active_width = slide.data 'active-width'
@@ -26,8 +26,8 @@ ready = ->
 
       slides.not(slide).animate width: 'toggle', 'slow'
       slide.animate width: active_width, backgroundPositionX: active_background_position_x, 'slow', ->
-        content.animate height: 'toggle', 'slow', ->
-          panel.show 'fast'
+        content.animate height: 'toggle', 'slow'
+        panel.show 'fast'
 
   slides.each (index, element) ->
     slide = $(element)
