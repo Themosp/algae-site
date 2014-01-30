@@ -42,21 +42,6 @@
   @include link;
 }
 
-@mixin text-languages {
-  @include font-helvetica-neue;
-  font-weight: bold;
-  font-size: 14px;
-  color: $grey;
-  @include link;
-}
-
-@mixin text-search {
-  @include font-helvetica;
-  font-size: 12px;
-  color: $grey;
-  @include link;
-}
-
 @mixin text-heading {
   @include font-helvetica;
   font-size: 20px;
