@@ -1,8 +1,6 @@
 AlgaeSite::Application.routes.draw do
 
   scope module: :static do
-    get :financial
-
     get :company
 
     namespace :company do
@@ -20,13 +18,10 @@ AlgaeSite::Application.routes.draw do
       get :questions
     end
 
-    get :certifications
     get :contact
     get :careers
-
     get :sitemap
     get :terms
-    get :cookies
   end
 
   root 'static#company'

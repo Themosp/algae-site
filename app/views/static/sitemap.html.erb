@@ -11,27 +11,26 @@
 
         <ul>
             <li>
-                <%= link_to 'Η εταιρία', root_path %>
+                <%= link_to 'Η εταιρία', company_path %>
                 <ul>
-                    <li>Καλώς ήρθατε στην Algae farms</li>
-                    <li>Το όραμα μας</li>
-                    <li>Οι εγκαταστάσεις</li>
+                    <li><%= link_to 'Καλώς ήρθατε στην Algae farms', company_welcome_path %></li>
+                    <li><%= link_to 'Το όραμα μας', company_vision_path %></li>
+                    <li><%= link_to 'Οι εγκαταστάσεις', company_facilities_path %></li>
                 </ul>
             </li>
-            <li><%= link_to 'Οικονομικά στοιχεία', financial_path %></li>
+            <li><%= link_to 'Πληροφοριακό ένταξης', '/pdf/factsheet.txt' %></li>
+            <li><%= link_to 'Ενημέρωση επενδυτών', '/pdf/briefing.txt' %></li>
             <li><%= link_to 'Προϊόντα', products_path %>
                 <ul>
-                    <li>Pellet άλγης</li>
-                    <li>Λάδι άλγης</li>
-                    <li>Briquettes άλγης</li>
-                    <li>Συχνές ερωτήσεις</li>
+                    <li><%= link_to 'Pellet άλγης', products_pellets_path %></li>
+                    <li><%= link_to 'Λάδι άλγης', products_pellets_path %></li>
+                    <li><%= link_to 'Briquettes άλγης', products_pellets_path %></li>
+                    <li><%= link_to 'Πιστοποιήσεις', '/pdf/certifications.txt' %></li>
                 </ul>
             </li>
-            <li><%= link_to 'Πιστοποιήσεις', certifications_path %></li>
             <li><%= link_to 'Ευκαιρίες καριέρας', careers_path %></li>
             <li><%= link_to 'Επικοινωνία', contact_path %></li>
             <li><%= link_to 'Sitemap', sitemap_path %></li>
-            <li><%= link_to 'Cookies', cookies_path %></li>
             <li><%= link_to 'Όροι χρήσης', terms_path %></li>
         </ul>
     </div>
