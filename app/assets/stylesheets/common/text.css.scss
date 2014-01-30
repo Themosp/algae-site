@@ -36,7 +36,6 @@
 
 @mixin text-menu {
   @include font-helvetica-neue;
-  font-weight: bold;
   font-size: 16px;
   color: $grey;
   @include link;
@@ -58,7 +57,6 @@
 
 @mixin text-title {
   @include font-helvetica-neue;
-  font-weight: bold;
   font-size: 35px;
   color: $white;
   text-shadow: 3px 3px 17px $black;
