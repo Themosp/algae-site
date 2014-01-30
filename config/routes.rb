@@ -1,9 +1,25 @@
 AlgaeSite::Application.routes.draw do
 
   scope module: :static do
-    get :index
     get :financial
+
+    get :company
+
+    namespace :company do
+      get :welcome
+      get :vision
+      get :facilities
+    end
+
     get :products
+
+    namespace :products do
+      get :pellets
+      get :oil
+      get :briquettes
+      get :questions
+    end
+
     get :certifications
     get :contact
     get :careers
@@ -13,7 +29,7 @@ AlgaeSite::Application.routes.draw do
     get :cookies
   end
 
-  root 'static#index'
+  root 'static#company'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

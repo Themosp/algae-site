@@ -6,8 +6,6 @@
 @import "common/text";
 
 .body-container {
-  border: solid 1px $grey;
-  padding: 5px;
   margin-top: 30px;
   margin-bottom: 30px;
   overflow: auto;
@@ -60,27 +58,11 @@
   }
 
   height: 550px;
-
-  &.with-panel {
-    height: 518px;
-  }
-
   width: 33%;
   float: left;
-  display: none;
   overflow-y: auto;
 
   &.last {
     margin-left: 1%;
   }
-}
-
-.content-panel {
-  @include text-body;
-
-  height: 32px;
-  float: right;
-  margin-right: 10px;
-
-  display: none;
 }
