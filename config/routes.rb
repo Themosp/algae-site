@@ -1,6 +1,7 @@
 AlgaeSite::Application.routes.draw do
 
   scope module: :static do
+    get :index
     get :company
 
     namespace :company do
@@ -24,7 +25,7 @@ AlgaeSite::Application.routes.draw do
     get :terms
   end
 
-  root 'static#company'
+  root 'static#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
