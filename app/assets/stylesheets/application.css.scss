@@ -54,22 +54,9 @@
 .menu-bottom {
   @include text-menu-bottom;
 
-  position: relative;
   border-top: solid 1px $grey;
   border-bottom: solid 1px $grey;
   padding: 4px 10px;
-
-  .follow-us {
-    position: absolute;
-    right: 0;
-    top: 11px;
-    background-color: $white;
-    padding: 0 10px;
-
-    img {
-      vertical-align: bottom;
-    }
-  }
 }
 
 .copyright {
