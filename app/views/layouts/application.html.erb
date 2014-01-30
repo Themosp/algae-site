@@ -10,11 +10,11 @@
 <body>
 
 <div class="container">
-    <div class="logo">
-        <%= link_to image_tag('logo.png', width: 243, height: 65), root_path %>
-    </div>
-
     <nav class="menu">
+        <div class="logo">
+            <%= link_to image_tag('logo.png', width: 140, height: 60), root_path %>
+        </div>
+
         <%= link_to 'Η εταιρία', company_path %>
         <%= link_to 'Πληροφοριακό ένταξης', '/pdf/factsheet.txt' %>
         <%= link_to 'Ενημέρωση επενδυτών', '/pdf/briefing.txt' %>
