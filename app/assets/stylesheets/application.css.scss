@@ -35,15 +35,53 @@
   padding-bottom: 5px;
   border-bottom: solid 1px $grey;
 
-  > a {
-    display: inline-block;
-    padding: 5px 5px;
-    margin-left: 10px;
-    margin-top: 35px;
+  > ul {
+    margin: 0;
 
-    &:hover {
-      background-color: $light-green;
-      color: $white;
+    > li {
+      display: inline-block;
+      margin-left: 5px;
+      margin-top: 34px;
+
+      a {
+        display: block;
+        padding: 7px 10px;
+
+        &:hover {
+          color: $white;
+        }
+      }
+
+      position: relative;
+
+      nav {
+        display: none;
+        position: absolute;
+        background-color: $light-green;
+        width: 350px;
+        text-align: left;
+
+        ul {
+          list-style: none;
+          padding: 10px 20px;
+
+          li {
+            border-bottom: solid 1px $white;
+
+            &.last {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        background-color: $light-green;
+
+        nav {
+          display: block;
+        }
+      }
     }
   }
 }

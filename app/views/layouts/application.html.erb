@@ -15,12 +15,33 @@
             <%= link_to image_tag('logo.png', width: 140, height: 60), root_path %>
         </div>
 
-        <%= link_to 'Η εταιρία', company_path %>
-        <%= link_to 'Πληροφοριακό ένταξης', '/pdf/placeholder.pdf' %>
-        <%= link_to 'Ενημέρωση επενδυτών', '/pdf/placeholder.pdf' %>
-        <%= link_to 'Προϊόντα', products_path %>
-        <%= link_to 'Ευκαιρίες καριέρας', careers_path %>
-        <%= link_to 'Επικοινωνία', contact_path %>
+        <ul>
+            <li>
+                <%= link_to 'Η εταιρία', company_path %>
+                <nav>
+                    <ul>
+                        <li><%= link_to 'Καλώς ήρθατε στην Algae farms', company_welcome_path %></li>
+                        <li><%= link_to 'Το όραμα μας', company_vision_path %></li>
+                        <li class="last"><%= link_to 'Οι εγκαταστάσεις', company_facilities_path %></li>
+                    </ul>
+                </nav>
+            </li>
+            <li><%= link_to 'Πληροφοριακό ένταξης', '/pdf/placeholder.pdf' %></li>
+            <li><%= link_to 'Ενημέρωση επενδυτών', '/pdf/placeholder.pdf' %></li>
+            <li>
+                <%= link_to 'Προϊόντα', products_path %>
+                <nav>
+                    <ul>
+                        <li><%= link_to 'Pellets άλγης', products_pellets_path %></li>
+                        <li><%= link_to 'Βιοέλαιο άλγης', products_oil_path %></li>
+                        <li><%= link_to 'Briquettes άλγης', products_briquettes_path %></li>
+                        <li class="last"><%= link_to 'Πιστοποιήσεις', '/pdf/placeholder.pdf' %></li>
+                    </ul>
+                </nav>
+            </li>
+            <li><%= link_to 'Ευκαιρίες καριέρας', careers_path %></li>
+            <li><%= link_to 'Επικοινωνία', contact_path %></li>
+        </ul>
     </nav>
 
     <div class="clear"></div>
