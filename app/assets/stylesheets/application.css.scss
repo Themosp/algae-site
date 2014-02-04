@@ -108,9 +108,11 @@ table {
   border-top: solid 1px $grey;
   border-bottom: solid 1px $grey;
   padding: 4px 10px;
+  text-align: right;
 }
 
 .copyright {
   @include text-copyright;
   padding: 4px 10px;
+  text-align: right;
 }
