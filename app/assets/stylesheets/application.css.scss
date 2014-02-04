@@ -102,6 +102,16 @@ table {
   clear: both;
 }
 
+.cookies {
+  @include text-menu-bottom;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+  border: solid 1px $grey;
+  padding: 4px;
+}
+
 .menu-bottom {
   @include text-menu-bottom;
 

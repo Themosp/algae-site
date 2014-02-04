@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var ready = function() {
+    if (!$.cookie('no_cookies_popup') == true) {
+        $('#cookies').slideDown('slow');
+
+        $('#cookies-ok').on('click', function () {
+            $('#cookies').slideUp('slow');
+            $.cookie('no_cookies_popup', true);
+        });
+    }
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

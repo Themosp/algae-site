@@ -4,6 +4,7 @@
     <title>Algae farms</title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js" %>
     <%= csrf_meta_tags %>
 </head>
 <body>
@@ -45,6 +46,12 @@
     </nav>
 
     <div class="clear"></div>
+
+    <div class="cookies" id="cookies" style="display: none;">
+        Για να επιτύχουμε την καλύτερη δυνατή εμπειρία χρήσης αυτού του ιστότοπου, κάνουμε χρήση Cookies. Συνέχεια της χρήσης του ιστότοπου ισοδυναμεί με αυτόματη αποδοχή των Cookies.
+        <br />
+        <input type="button" value="Εντάξει" id="cookies-ok">
+    </div>
 
     <%= yield %>
 
