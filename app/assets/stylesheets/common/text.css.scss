@@ -1,21 +1,7 @@
 @import "colors";
 
-@mixin font-helvetica {
-  font-family: "Open Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-@mixin font-helvetica-light {
-  font-family: "Open Sans", "Helvetica-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
-}
-
-@mixin font-helvetica-neue {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-@mixin font-helvetica-neue-light {
-  font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
+@mixin font-verdana {
+  font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
 }
 
 @mixin link {
@@ -35,28 +21,28 @@
 }
 
 @mixin text-menu {
-  @include font-helvetica-neue;
-  font-size: 16px;
+  @include font-verdana;
+  font-size: 11px;
   color: $grey;
   @include link;
 }
 
 @mixin text-heading {
-  @include font-helvetica;
-  font-size: 20px;
+  @include font-verdana;
+  font-size: 16px;
   color: $green;
   @include link;
 }
 
 @mixin text-body {
-  @include font-helvetica-light;
-  font-size: 15px;
+  @include font-verdana;
+  font-size: 12px;
   color: $grey;
   @include link;
 }
 
 @mixin text-title {
-  @include font-helvetica-neue;
+  @include font-verdana;
   font-size: 35px;
   color: $white;
   text-shadow: 3px 3px 17px $black;
@@ -64,14 +50,14 @@
 }
 
 @mixin text-menu-bottom {
-  @include font-helvetica-light;
-  font-size: 17px;
+  @include font-verdana;
+  font-size: 11px;
   color: $grey;
   @include link;
 }
 
 @mixin text-copyright {
-  @include font-helvetica-neue-light;
+  @include font-verdana;
   font-size: 10px;
   color: $grey;
   @include link;
