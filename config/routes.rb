@@ -10,6 +10,7 @@ AlgaeSite::Application.routes.draw do
       get :facilities
     end
 
+    get :invest
     get :products
 
     namespace :products do
