@@ -16,7 +16,7 @@ AlgaeSite::Application.routes.draw do
       get :pellets
       get :oil
       get :briquettes
-      get :questions
+      get :certifications
     end
 
     get :links
