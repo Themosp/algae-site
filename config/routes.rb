@@ -19,6 +19,7 @@ AlgaeSite::Application.routes.draw do
       get :questions
     end
 
+    get :links
     get :contact
     get :careers
     get :sitemap
