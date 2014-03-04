@@ -62,6 +62,18 @@
       }
     }
   }
+
+  &.slide-hover-company:hover {
+    background-image: image-url('company.png') !important;
+  }
+
+  &.slide-hover-financial:hover {
+    background-image: image-url('financial.png') !important;
+  }
+
+  &.slide-hover-products:hover {
+    background-image: image-url('products.png') !important;
+  }
 }
 
 .content {
