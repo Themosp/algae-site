@@ -11,6 +11,7 @@ AlgaeSite::Application.routes.draw do
     end
 
     get :invest
+    get :shareholders
     get :govern
     get :products
 
