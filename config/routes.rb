@@ -20,6 +20,13 @@ AlgaeSite::Application.routes.draw do
       get :oil
       get :briquettes
       get :certifications
+
+      namespace :certifications do
+        get :en_plus
+        get :iscc
+        get :iso_9000
+        get :iso_14000
+      end
     end
 
     get :links

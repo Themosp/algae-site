@@ -31,7 +31,14 @@
                     <li><%= link_to 'Pellets άλγης', products_pellets_path %></li>
                     <li><%= link_to 'Βιοέλαιο άλγης', products_oil_path %></li>
                     <li><%= link_to 'Briquettes άλγης', products_briquettes_path %></li>
-                    <li><%= link_to 'Πιστοποιήσεις', products_certifications_path %></li>
+                    <li><%= link_to 'Πιστοποιήσεις', products_certifications_path %>
+                        <ul>
+                            <li><%= link_to 'ENplus', products_certifications_en_plus_path %></li>
+                            <li><%= link_to 'ISCC', products_certifications_iscc_path %></li>
+                            <li><%= link_to 'ISO 9000', products_certifications_iso_9000_path %></li>
+                            <li><%= link_to 'ISO 14000', products_certifications_iso_14000_path %></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li><%= link_to 'Ευκαιρίες καριέρας', careers_path %></li>
