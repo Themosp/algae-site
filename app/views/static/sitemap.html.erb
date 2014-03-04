@@ -20,7 +20,11 @@
                 </ul>
             </li>
             <li><%= link_to 'Πληροφοριακό ένταξης', '/pdf/placeholder.pdf' %></li>
-            <li><%= link_to 'Ενημέρωση επενδυτών', invest_path %></li>
+            <li><%= link_to 'Ενημέρωση επενδυτών', invest_path %>
+                <ul>
+                    <li><%= link_to 'Εταιρική διακυβέρνηση', govern_path %></li>
+                </ul>
+            </li>
             <li><%= link_to 'Προϊόντα', products_path %>
                 <ul>
                     <li><%= link_to 'Pellets άλγης', products_pellets_path %></li>
