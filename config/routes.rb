@@ -1,5 +1,7 @@
 AlgaeSite::Application.routes.draw do
 
+  devise_for :users
+
   root 'static#index'
 
   scope module: :static do

@@ -27,6 +27,12 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :development do
+  gem 'mailcatcher'
+end
+
+gem 'devise'
+gem 'cancan'
 gem 'globalize'
 gem 'friendly_id', '~> 5.0.0'
 gem 'babosa'
