@@ -44,6 +44,8 @@ end
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'dalli'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
