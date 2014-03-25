@@ -11,3 +11,4 @@
    require File.expand_path('../seeds/cms_page_groups', __FILE__)
  end
  require File.expand_path('../seeds/cms_page_groups_pages', __FILE__)
+ require File.expand_path('../seeds/users', __FILE__)
