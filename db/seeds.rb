@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
- I18n.with_locale 'el' do
+ I18n.with_locale :el do
    require File.expand_path('../seeds/cms_pages', __FILE__)
    require File.expand_path('../seeds/cms_page_groups', __FILE__)
  end

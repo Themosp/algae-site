@@ -35,7 +35,7 @@ module Concerns
     end
 
     def available_locales
-      [ :el, :en, :de, :it, :es, :ar ]
+      I18n.available_locales
     end
 
     def locale_settable?(locale)
