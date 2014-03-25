@@ -30,6 +30,7 @@ GEM
     atomic (1.1.14)
     babosa (0.3.11)
     builder (3.1.4)
+    dalli (2.7.0)
     erubis (2.7.0)
     execjs (2.0.2)
     friendly_id (5.0.3)
@@ -119,6 +120,7 @@ PLATFORMS
 
 DEPENDENCIES
   babosa
+  dalli
   friendly_id (~> 5.0.0)
   globalize
   jquery-rails
