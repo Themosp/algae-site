@@ -1,0 +1,39 @@
+<h1>Listing Pages</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Title link</th>
+      <th>Big image</th>
+      <th>Image position</th>
+      <th>Image link</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td><%= page.slug.presence || page.id %></td>
+        <td><%= page.title %></td>
+        <td><%= page.title_link %></td>
+        <td><%= page.big_image %></td>
+        <td><%= page.image_position %></td>
+        <td><%= page.image_link %></td>
+        <td><%= link_to 'Show', [:admin, page], class: 'btn btn-info' %></td>
+        <td><%= link_to 'Show in public', page_path(page, for_locale: nil, locale: params[:for_locale]), class: 'btn btn-info' %></td>
+        <td><%= link_to 'Edit', edit_admin_page_path(page), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', [:admin, page], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Page', new_admin_page_path, class: 'btn btn-primary' %>

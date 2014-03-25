@@ -1,0 +1,29 @@
+<h1>Listing Page Groups</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @page_groups.each do |page_group| %>
+      <tr>
+        <td><%= page_group.slug.presence || page_group.id %></td>
+        <td><%= page_group.title %></td>
+        <td><%= link_to 'Show', [:admin, page_group], class: 'btn btn-info' %></td>
+        <td><%= link_to 'Edit', edit_admin_page_group_path(page_group), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', [:admin, page_group], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Page Group', new_admin_page_group_path, class: 'btn btn-primary' %>

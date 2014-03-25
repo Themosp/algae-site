@@ -1,0 +1,30 @@
+<%= form_for([:admin, @page_group]) do |f| %>
+
+  <% if @page_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page_group.errors.count, "error") %> prohibited this admin_page_group from being saved:</h2>
+
+      <ul>
+      <% @page_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :pages %><br>
+      <%= f.collection_select(:page_ids, @all_pages, :id, :title, { }, multiple: true) %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

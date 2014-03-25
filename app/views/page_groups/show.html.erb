@@ -1,0 +1,12 @@
+<% slides_class = @page_group.pages.size == 3 ? 'three-slides' : 'four-slides' %>
+
+<div class="body-container">
+    <% @page_group.pages.each.with_index do |page, index| %>
+        <div class="main-slide <%= slides_class %> <%= 'last' if index == @page_group.pages.size - 1 %>"
+             style="background-image: url(<%= image_url page.image %>); background-position: <%= page.image_position %>px;">
+            <a href="<%= page_path(page) %>">
+                <span class="table-cell"><%= page.title %></span>
+            </a>
+        </div>
+    <% end %>
+</div>

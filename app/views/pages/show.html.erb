@@ -1,0 +1,14 @@
+<div class="body-container">
+    <div class="main-slide"
+         style="background-image: url(<%= image_url @page.image %>); width: <%= @page.big_image ? '66%' : '33%' %>; background-position: <%= @page.image_position %>px; margin-right: 1%;">
+        <%= link_to @page.image_link do %>
+            <span class="table-cell"><%= @page.title %></span>
+        <% end %>
+    </div>
+
+    <div class="content" style="width: <%= @page.big_image ? '33%' : '66%' %>;">
+        <h1><%= @page.title %></h1>
+
+        <%= @page.body.html_safe %>
+    </div>
+</div>

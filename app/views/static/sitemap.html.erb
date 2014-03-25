@@ -12,40 +12,40 @@
         <ul>
             <li><%= link_to 'Αρχική', index_path %></li>
             <li>
-                <%= link_to 'Η εταιρεία', company_path %>
+                <%= link_to 'Η εταιρεία', page_group_path('company') %>
                 <ul>
-                    <li><%= link_to 'Καλώς ήρθατε στην Algae Farms', company_welcome_path %></li>
-                    <li><%= link_to 'Το όραμα μας', company_vision_path %></li>
-                    <li><%= link_to 'Οι εγκαταστάσεις', company_facilities_path %></li>
+                    <li><%= link_to 'Καλώς ήρθατε στην Algae Farms', page_path('welcome') %></li>
+                    <li><%= link_to 'Το όραμα μας', page_path('vision') %></li>
+                    <li><%= link_to 'Οι εγκαταστάσεις', page_path('facilities') %></li>
                 </ul>
             </li>
             <li><%= link_to 'Πληροφοριακό ένταξης', '/pdf/placeholder.pdf' %></li>
-            <li><%= link_to 'Ενημέρωση επενδυτών', invest_path %>
+            <li><%= link_to 'Ενημέρωση επενδυτών', page_path('invest') %>
                 <ul>
-                    <li><%= link_to 'Εξυπηρέτηση μετόχων', shareholders_path %></li>
-                    <li><%= link_to 'Εταιρική διακυβέρνηση', govern_path %></li>
+                    <li><%= link_to 'Εξυπηρέτηση μετόχων', page_path('shareholders') %></li>
+                    <li><%= link_to 'Εταιρική διακυβέρνηση', page_path('govern') %></li>
                 </ul>
             </li>
-            <li><%= link_to 'Προϊόντα', products_path %>
+            <li><%= link_to 'Προϊόντα', page_group_path('products') %>
                 <ul>
-                    <li><%= link_to 'Pellets άλγης', products_pellets_path %></li>
-                    <li><%= link_to 'Βιοέλαιο άλγης', products_oil_path %></li>
-                    <li><%= link_to 'Briquettes άλγης', products_briquettes_path %></li>
-                    <li><%= link_to 'Πιστοποιήσεις', products_certifications_path %>
+                    <li><%= link_to 'Pellets άλγης', page_path('pellets') %></li>
+                    <li><%= link_to 'Βιοέλαιο άλγης', page_path('oil') %></li>
+                    <li><%= link_to 'Briquettes άλγης', page_path('briquettes') %></li>
+                    <li><%= link_to 'Πιστοποιήσεις', page_path('certifications') %>
                         <ul>
-                            <li><%= link_to 'ENplus', products_certifications_en_plus_path %></li>
-                            <li><%= link_to 'ISCC', products_certifications_iscc_path %></li>
-                            <li><%= link_to 'ISO 9000', products_certifications_iso_9000_path %></li>
-                            <li><%= link_to 'ISO 14000', products_certifications_iso_14000_path %></li>
+                            <li><%= link_to 'ENplus', page_path('en_plus') %></li>
+                            <li><%= link_to 'ISCC', page_path('iscc') %></li>
+                            <li><%= link_to 'ISO 9000', page_path('iso_9000') %></li>
+                            <li><%= link_to 'ISO 14000', page_path('14000') %></li>
                         </ul>
                     </li>
                 </ul>
             </li>
-            <li><%= link_to 'Ευκαιρίες καριέρας', careers_path %></li>
-            <li><%= link_to 'Χρήσιμοι σύνδεσμοι', links_path %></li>
-            <li><%= link_to 'Επικοινωνία', contact_path %></li>
+            <li><%= link_to 'Ευκαιρίες καριέρας', page_path('careers') %></li>
+            <li><%= link_to 'Χρήσιμοι σύνδεσμοι', page_path('links') %></li>
+            <li><%= link_to 'Επικοινωνία', page_path('contact') %></li>
             <li><%= link_to 'Sitemap', sitemap_path %></li>
-            <li><%= link_to 'Όροι χρήσης', terms_path %></li>
+            <li><%= link_to 'Όροι χρήσης', page_path('terms') %></li>
         </ul>
     </div>
 </div>

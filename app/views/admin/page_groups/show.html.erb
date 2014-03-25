@@ -1,0 +1,23 @@
+<h1>Showing Page Group</h1>
+
+<p>
+    <strong>ID:</strong>
+    <%= @page_group.slug.presence || @page_group.id %>
+</p>
+
+<p>
+    <strong>Title:</strong>
+    <%= @page_group.title %>
+</p>
+
+<p>
+    <strong>Pages:</strong>
+    <ul>
+        <% @page_group.pages.each do |page| %>
+            <li><%= page.title %></li>
+        <% end %>
+    </ul>
+</p>
+
+<%= link_to 'Edit', edit_admin_page_group_path(@page_group), class: 'btn btn-warning' %>
+<%= link_to 'Back', admin_page_groups_path, class: 'btn btn-default' %>
