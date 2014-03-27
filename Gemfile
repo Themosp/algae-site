@@ -38,7 +38,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'babosa'
 
 gem 'rails-assets-bootstrap'
-gem 'rails-assets-ckeditor'
+gem 'ckeditor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
