@@ -23,9 +23,13 @@ module AlgaeSite
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
     config.i18n.default_locale = :el
+
+    # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+    # the I18n.default_locale when a translation can not be found).
     config.i18n.fallbacks = [ :en ]
+
+    # Load only locales that are going to be used.
     config.i18n.available_locales = [ :el, :en, :de, :it, :es, :ar ]
   end
 end
