@@ -21,7 +21,7 @@ $(function () {
     function randomString(length) {
         var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
 
-        if (! length) {
+        if (!length) {
             length = Math.floor(Math.random() * chars.length);
         }
 
