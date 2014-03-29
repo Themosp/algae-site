@@ -39,18 +39,21 @@ $(function () {
         CKEDITOR.replace($(element).attr('id'));
     });
 
-    $('[role="polymorphic"]').each(function(index, element) {
+    $('[data-polymorphic="true"]').each(function (index, element) {
         var $element = $(element),
-            types = $element.find('[role="polymorphic_type"]'),
-            ids = $element.find('[role="polymorphic_id"]');
+            id_field = $element.find('[data-polymorphic="id"]'),
+            type_field = $element.find('[data-polymorphic="type"]'),
+            master_select = $element.find('[data-polymorphic="master"]');
 
-        ids.on('change', function () {
-            var selectedOption = ids.find('option:selected'),
-                selectedGroup = selectedOption.closest('optgroup'),
-                selectedTypeLabel = selectedGroup.attr('label'),
-                selectedTypeOption = types.find('option').filter(function () { return $(this).text() == selectedTypeLabel; }).first().val();
+        master_select.on('change', function () {
+            var selectedOption = master_select.find('option:selected'),
+                selectedOptionValue = selectedOption.val(),
+                selections = selectedOptionValue.split('::'),
+                selectedType = selections[0],
+                selectedId = selections[1];
 
-            types.val(selectedTypeOption);
+            type_field.val(selectedType);
+            id_field.val(selectedId);
         });
-    })
+    });
 });

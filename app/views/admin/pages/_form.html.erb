@@ -32,14 +32,9 @@
     <%= f.check_box :big_image, class: 'form-control' %>
   </div>
 
-  <div class="form-group" role="polymorphic">
+  <div class="form-group">
     <%= f.label :back_link %><br>
-
-    <% ids = @all_back_links.group_by(&:class).map { |klass, back_links| [ klass.name.pluralize, back_links.map { |back_link| [ back_link.title, back_link.id ] } ] } %>
-    <% types = @all_back_links.group_by(&:class).keys.map { |klass| [ klass.name.pluralize, klass.name ] } %>
-
-    <%= f.select :back_link_id, ids, { include_blank: true }, class: 'form-control', role: 'polymorphic_id' %>
-    <%= f.select :back_link_type, types, { include_blank: true }, class: 'hidden', role: 'polymorphic_type' %>
+    <%= polymorphic_select(f, :back_link, @all_back_links, :title, { include_blank: true }, class: 'form-control') %>
   </div>
 
   <div class="form-group">
