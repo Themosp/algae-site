@@ -2,6 +2,7 @@ module Admin
   class PagesController < BaseController
     before_action :set_page, only: [:show, :edit, :update, :destroy]
     before_action :set_all_images, only: [:edit, :new]
+    before_action :set_all_back_links, only: [:edit, :new]
 
     # GET /pages
     def index
@@ -58,9 +59,13 @@ module Admin
       @all_images = Image.all.order(:id)
     end
 
+    def set_all_back_links
+      @all_back_links = Page.all.order(:id) + PageGroup.all.order(:id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:title, :title_link, :image_id, :big_image, :image_link, :body)
+      params.require(:page).permit(:title, :title_link, :image_id, :big_image, :back_link_id, :back_link_type, :body)
     end
   end
 end

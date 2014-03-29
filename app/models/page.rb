@@ -7,4 +7,7 @@ class Page < ActiveRecord::Base
   has_many :page_groups, through: :page_groups_page
 
   belongs_to :image
+  belongs_to :back_link, polymorphic: true
+
+  has_many :back_linked_pages, class_name: 'Page', as: :back_link
 end

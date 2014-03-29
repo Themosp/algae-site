@@ -26,8 +26,13 @@
 </p>
 
 <p>
-  <strong>Image link:</strong>
-  <%= @page.image_link %>
+  <strong>Back link:</strong>
+  <%= link_to @page.back_link.title, [:admin, @page.back_link] if @page.back_link.present? %>
+</p>
+
+<p>
+    <strong>Back link for:</strong>
+    <%= @page.back_linked_pages.map { |page| link_to page.title, [:admin, page] }.join(', ').html_safe %>
 </p>
 
 <p>

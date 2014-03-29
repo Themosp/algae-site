@@ -38,4 +38,19 @@ $(function () {
         }
         CKEDITOR.replace($(element).attr('id'));
     });
+
+    $('[role="polymorphic"]').each(function(index, element) {
+        var $element = $(element),
+            types = $element.find('[role="polymorphic_type"]'),
+            ids = $element.find('[role="polymorphic_id"]');
+
+        ids.on('change', function () {
+            var selectedOption = ids.find('option:selected'),
+                selectedGroup = selectedOption.closest('optgroup'),
+                selectedTypeLabel = selectedGroup.attr('label'),
+                selectedTypeOption = types.find('option').filter(function () { return $(this).text() == selectedTypeLabel; }).first().val();
+
+            types.val(selectedTypeOption);
+        });
+    })
 });

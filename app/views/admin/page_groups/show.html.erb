@@ -24,6 +24,11 @@
     </ul>
 </p>
 
+<p>
+    <strong>Back link for:</strong>
+    <%= @page_group.back_linked_pages.map { |page| link_to page.title, [:admin, page] }.join(', ').html_safe %>
+</p>
+
 <%= link_to 'Edit', [:edit, :admin, @page_group], class: 'btn btn-warning' %>
 <%= link_to 'View in public', page_group_path(@page_group, for_locale: nil, locale: params[:for_locale]), class: 'btn btn-info' %>
 <%= link_to 'Back', [:admin, :page_groups], class: 'btn btn-default' %>
