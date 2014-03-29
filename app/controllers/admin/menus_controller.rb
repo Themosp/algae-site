@@ -54,7 +54,7 @@ module Admin
 
     # Only allow a trusted parameter "white list" through.
     def menu_params
-      params.require(:menu).permit(:title)
+      params.require(:menu).permit(:title, linkables_menus_attributes: [ :id, :order, :depth, :linkable_id, :linkable_type, :_destroy ])
     end
   end
 end

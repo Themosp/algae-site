@@ -10,42 +10,16 @@
         <h1>Sitemap</h1>
 
         <ul>
-            <li><%= link_to 'Αρχική', index_path %></li>
-            <li>
-                <%= link_to 'Η εταιρεία', page_group_path('company') %>
-                <ul>
-                    <li><%= link_to 'Καλώς ήρθατε στην Algae Farms', page_path('welcome') %></li>
-                    <li><%= link_to 'Το όραμα μας', page_path('vision') %></li>
-                    <li><%= link_to 'Οι εγκαταστάσεις', page_path('facilities') %></li>
-                </ul>
-            </li>
-            <li><%= link_to 'Πληροφοριακό ένταξης', '/pdf/placeholder.pdf' %></li>
-            <li><%= link_to 'Ενημέρωση επενδυτών', page_path('invest') %>
-                <ul>
-                    <li><%= link_to 'Εξυπηρέτηση μετόχων', page_path('shareholders') %></li>
-                    <li><%= link_to 'Εταιρική διακυβέρνηση', page_path('govern') %></li>
-                </ul>
-            </li>
-            <li><%= link_to 'Προϊόντα', page_group_path('products') %>
-                <ul>
-                    <li><%= link_to 'Pellets άλγης', page_path('pellets') %></li>
-                    <li><%= link_to 'Βιοέλαιο άλγης', page_path('oil') %></li>
-                    <li><%= link_to 'Briquettes άλγης', page_path('briquettes') %></li>
-                    <li><%= link_to 'Πιστοποιήσεις', page_path('certifications') %>
-                        <ul>
-                            <li><%= link_to 'ENplus', page_path('en_plus') %></li>
-                            <li><%= link_to 'ISCC', page_path('iscc') %></li>
-                            <li><%= link_to 'ISO 9000', page_path('iso_9000') %></li>
-                            <li><%= link_to 'ISO 14000', page_path('14000') %></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><%= link_to 'Ευκαιρίες καριέρας', page_path('careers') %></li>
-            <li><%= link_to 'Χρήσιμοι σύνδεσμοι', page_path('links') %></li>
-            <li><%= link_to 'Επικοινωνία', page_path('contact') %></li>
-            <li><%= link_to 'Sitemap', sitemap_path %></li>
-            <li><%= link_to 'Όροι χρήσης', page_path('terms') %></li>
+            <% @sitemap_menu = Menu.includes(linkables_menus: { linkable: :translations }).where(title: 'Sitemap').first %>
+            <% @sitemap_menu.linkables_menus.zip(@sitemap_menu.linkables_menus[1, @sitemap_menu.linkables_menus.size]).each do |current_item, next_item| %>
+                <% more_depth = next_item.present? && next_item.depth > current_item.depth %>
+                <% less_depth = next_item.present? && next_item.depth < current_item.depth %>
+                <li>
+                    <%= link_to current_item.linkable.title, current_item.linkable %>
+                    <%= '<ul>'.html_safe if more_depth %>
+                    <%= '</ul>'.html_safe if less_depth %>
+                </li>
+            <% end %>
         </ul>
     </div>
 </div>

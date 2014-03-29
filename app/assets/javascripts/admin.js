@@ -56,4 +56,88 @@ $(function () {
             id_field.val(selectedId);
         });
     });
+
+    $('[data-nested="true"]').each(function (index, element) {
+        var $element = $(element),
+            fieldsets = $element.find('fieldset');
+
+        var updateDepth = function () {
+            fieldsets = $element.find('fieldset');
+
+            fieldsets.each(function (index, element) {
+                var fieldset = $(element),
+                    leftButton = fieldset.find('[data-nested="left"]'),
+                    rightButton = fieldset.find('[data-nested="right"]'),
+                    depthField = fieldset.find('[name$="[depth]"]'),
+                    depthIndicator = fieldset.find('.glyphicon-chevron-right');
+
+                if (!depthField.val()) {
+                    depthField.val(0);
+                }
+
+                if (depthField.val() == 0) {
+                    depthIndicator.remove();
+                } else if (depthIndicator.length == 0) {
+                    fieldset.prepend('<span class="glyphicon glyphicon-chevron-right"></span>');
+                }
+
+                leftButton.prop('disabled', (depthField.val() > 0) ? null : 'disabled');
+                rightButton.prop('disabled', (depthField.val() < 1) ? null : 'disabled');
+            });
+        };
+        updateDepth();
+
+        fieldsets.each(function (index, element) {
+            var fieldset = $(element),
+                leftButton = fieldset.find('[data-nested="left"]'),
+                rightButton = fieldset.find('[data-nested="right"]'),
+                depthField = fieldset.find('[name$="[depth]"]');
+
+            leftButton.on('click', function (event) {
+                depthField.val(parseInt(depthField.val()) - 1);
+                updateDepth();
+            });
+            rightButton.on('click', function () {
+                depthField.val(parseInt(depthField.val()) + 1);
+                updateDepth();
+            });
+        });
+    });
+
+    $('[data-ordered="true"]').each(function (index, element) {
+        var $element = $(element),
+            fieldsets = $element.find('fieldset');
+
+        var updateOrder = function () {
+            fieldsets = $element.find('fieldset');
+
+            fieldsets.each(function (index, element) {
+                var fieldset = $(element),
+                    upButton = fieldset.find('[data-ordered="up"]'),
+                    downButton = fieldset.find('[data-ordered="down"]'),
+                    orderField = fieldset.find('[name$="[order]"]');
+
+                orderField.val(index);
+
+                upButton.prop('disabled', (index == 0) ? 'disabled' : null);
+                downButton.prop('disabled', (index == fieldsets.length - 1) ? 'disabled' : null);
+            });
+        };
+        updateOrder();
+
+        fieldsets.each(function (index, element) {
+            var fieldset = $(element),
+                upButton = fieldset.find('[data-ordered="up"]'),
+                downButton = fieldset.find('[data-ordered="down"]');
+
+            upButton.on('click', function (event) {
+                fieldset.insertBefore(fieldsets.get(fieldsets.index(fieldset) - 1));
+                updateOrder();
+            });
+            downButton.on('click', function () {
+                fieldset.insertAfter(fieldsets.get(fieldsets.index(fieldset) + 1));
+                updateOrder();
+            });
+        });
+    });
 });

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329192040) do
+ActiveRecord::Schema.define(version: 20140329193020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 20140329192040) do
     t.string   "image_attachment_content_type"
     t.integer  "image_attachment_file_size"
     t.datetime "image_attachment_updated_at"
+  end
+
+  create_table "linkables_menus", force: true do |t|
+    t.integer  "order"
+    t.integer  "depth"
+    t.integer  "linkable_id"
+    t.string   "linkable_type"
+    t.integer  "menu_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "menus", force: true do |t|

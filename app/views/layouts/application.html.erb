@@ -18,32 +18,16 @@
         </div>
 
         <ul>
-            <li><%= link_to 'Αρχική', root_path %></li>
-            <li>
-                <%= link_to 'Η εταιρεία', page_group_path('company') %>
-                <nav>
-                    <ul>
-                        <li><%= link_to 'Καλώς ήρθατε στην Algae Farms', page_path('welcome') %></li>
-                        <li><%= link_to 'Το όραμα μας', page_path('vision') %></li>
-                        <li class="last"><%= link_to 'Οι εγκαταστάσεις', page_path('facilities') %></li>
-                    </ul>
-                </nav>
-            </li>
-            <li><%= link_to 'Πληροφοριακό ένταξης', '/pdf/placeholder.pdf' %></li>
-            <li><%= link_to 'Ενημέρωση επενδυτών', page_path('invest') %></li>
-            <li>
-                <%= link_to 'Προϊόντα', page_group_path('products') %>
-                <nav>
-                    <ul>
-                        <li><%= link_to 'Pellets άλγης', page_path('pellets') %></li>
-                        <li><%= link_to 'Βιοέλαιο άλγης', page_path('oil') %></li>
-                        <li><%= link_to 'Briquettes άλγης', page_path('briquettes') %></li>
-                        <li class="last"><%= link_to 'Πιστοποιήσεις', page_path('certifications') %></li>
-                    </ul>
-                </nav>
-            </li>
-            <li><%= link_to 'Ευκαιρίες καριέρας', page_path('careers') %></li>
-            <li><%= link_to 'Χρήσιμοι σύνδεσμοι', page_path('links') %></li>
+            <% @top_menu = Menu.includes(linkables_menus: { linkable: :translations }).where(title: 'Top').first %>
+            <% @top_menu.linkables_menus.zip(@top_menu.linkables_menus[1, @top_menu.linkables_menus.size]).each do |current_item, next_item| %>
+                <% more_depth = next_item.present? && next_item.depth > current_item.depth %>
+                <% less_depth = next_item.present? && next_item.depth < current_item.depth %>
+                <li class="<%= 'last' if less_depth %>">
+                    <%= link_to current_item.linkable.title, current_item.linkable %>
+                    <%= '<nav><ul>'.html_safe if more_depth %>
+                    <%= '</ul></nav>'.html_safe if less_depth %>
+                </li>
+            <% end %>
         </ul>
     </nav>
 
@@ -60,11 +44,11 @@
     <div class="clear"></div>
 
     <nav class="menu-bottom">
-        <%= link_to 'Επικοινωνία', page_path('contact') %>
-        /
-        <%= link_to 'Sitemap', sitemap_path %>
-        /
-        <%= link_to 'Όροι χρήσης', page_path('terms') %>
+        <% @bottom_menu = Menu.includes(linkables_menus: { linkable: :translations }).where(title: 'Bottom').first %>
+        <% @bottom_menu.linkables_menus.each_with_index do |current_item, index| %>
+            <%= link_to current_item.linkable.title, current_item.linkable %>
+            <%= '/' unless @bottom_menu.linkables_menus.size - 1 == index %>
+        <% end %>
     </nav>
 
     <div class="copyright">

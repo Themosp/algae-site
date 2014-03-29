@@ -10,4 +10,6 @@ class Page < ActiveRecord::Base
   belongs_to :back_link, polymorphic: true
 
   has_many :back_linked_pages, class_name: 'Page', as: :back_link
+
+  has_many :linkables_menus
 end
