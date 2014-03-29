@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/kubenstein/paperclip_database_attachments_responder
+  revision: f86e57e14f39cc37fc725ad04d1216677ffcccf7
+  specs:
+    paperclip_database_attachments_responder (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -35,6 +41,10 @@ GEM
     ckeditor (4.0.11)
       mime-types
       orm_adapter (~> 0.5.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     daemons (1.1.9)
     dalli (2.7.0)
     devise (3.2.4)
@@ -77,6 +87,14 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.2)
     orm_adapter (0.5.0)
+    paperclip (4.1.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+    paperclip_database (2.2.2)
+      paperclip (>= 2.3.0)
+      rails (>= 3.0.0)
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -172,6 +190,9 @@ DEPENDENCIES
   globalize
   jquery-rails
   mailcatcher
+  paperclip
+  paperclip_database
+  paperclip_database_attachments_responder!
   pg
   rails (~> 4.0.2)
   rails-assets-bootstrap

@@ -55,7 +55,7 @@ module Admin
 
     # Only allow a trusted parameter "white list" through.
     def image_params
-      params.require(:image).permit(:title, :position_for_small, :position_for_very_small)
+      params.require(:image).permit(:title, :image_attachment, :position_for_small, :position_for_very_small)
     end
   end
 end

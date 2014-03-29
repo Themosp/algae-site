@@ -6,13 +6,30 @@
 </p>
 
 <p>
+  <strong>Image attachment:</strong>
+  <%= image_tag @image.image_attachment %>
+</p>
+
+<p>
   <strong>Position for small:</strong>
   <%= @image.position_for_small %>
 </p>
 
 <p>
+    <strong>Sample</strong>
+  <span style="<%= @image.position_for_small_style %>; border: solid 1px #000000; overflow: hidden; width: 409px; height: 550px; display: block; background-image: url(<%= image_path @image.image_attachment %>)">
+  </span>
+</p>
+
+<p>
   <strong>Position for very small:</strong>
   <%= @image.position_for_very_small %>
+</p>
+
+<p>
+  <strong>Sample</strong>
+  <span style="<%= @image.position_for_very_small_style %>; border: solid 1px #000000; overflow: hidden; width: 289px; height: 550px; display: block; background-image: url(<%= image_path @image.image_attachment %>)">
+  </span>
 </p>
 
 <%= link_to 'Edit', edit_admin_image_path(@image), class: 'btn btn-warning' %>
