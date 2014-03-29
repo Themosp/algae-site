@@ -1,0 +1,19 @@
+<h1>Showing image</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @image.title %>
+</p>
+
+<p>
+  <strong>Position for small:</strong>
+  <%= @image.position_for_small %>
+</p>
+
+<p>
+  <strong>Position for very small:</strong>
+  <%= @image.position_for_very_small %>
+</p>
+
+<%= link_to 'Edit', edit_admin_image_path(@image), class: 'btn btn-warning' %>
+<%= link_to 'Back', admin_images_path, class: 'btn btn-default' %>
