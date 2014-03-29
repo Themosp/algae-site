@@ -4,7 +4,7 @@ module Admin
 
     # GET /images
     def index
-      @images = Image.all
+      @images = Image.all.order(:id)
     end
 
     # GET /images/1

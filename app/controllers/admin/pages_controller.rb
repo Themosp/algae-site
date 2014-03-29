@@ -4,7 +4,7 @@ module Admin
 
     # GET /pages
     def index
-      @pages = Page.all
+      @pages = Page.all.order(:id)
     end
 
     # GET /pages/1
