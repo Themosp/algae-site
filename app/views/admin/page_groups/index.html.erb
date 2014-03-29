@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>ID</th>
+      <th>Slug</th>
       <th>Title</th>
       <th></th>
       <th></th>
@@ -14,7 +15,8 @@
   <tbody>
     <% @page_groups.each do |page_group| %>
       <tr>
-        <td><%= page_group.slug.presence || page_group.id %></td>
+        <td><%= page_group.id %></td>
+        <td><%= page_group.slug %></td>
         <td><%= page_group.title %></td>
         <td><%= link_to 'Show', [:admin, page_group], class: 'btn btn-info' %></td>
         <td><%= link_to 'Edit', [:edit, :admin, page_group], class: 'btn btn-warning' %></td>
