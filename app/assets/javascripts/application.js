@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 
-var ready = function() {
+$(function () {
     if (!$.cookie('no_cookies_popup') == true) {
         $('#cookies').slideDown('slow');
 
@@ -22,7 +22,4 @@ var ready = function() {
             $.cookie('no_cookies_popup', true);
         });
     }
-};
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
+});
