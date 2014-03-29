@@ -44,7 +44,7 @@ module Admin
     # DELETE /admin/page_groups/1
     def destroy
       @page_group.destroy
-      redirect_to admin_page_groups_url, notice: 'Page group was successfully destroyed.'
+      redirect_to [:admin, :page_groups], notice: 'Page group was successfully destroyed.'
     end
 
     private

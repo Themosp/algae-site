@@ -43,7 +43,7 @@ module Admin
     # DELETE /pages/1
     def destroy
       @page.destroy
-      redirect_to admin_pages_url, notice: 'Page was successfully destroyed.'
+      redirect_to [:admin, :pages], notice: 'Page was successfully destroyed.'
     end
 
     private

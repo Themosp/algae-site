@@ -17,7 +17,7 @@
         <td><%= page_group.slug.presence || page_group.id %></td>
         <td><%= page_group.title %></td>
         <td><%= link_to 'Show', [:admin, page_group], class: 'btn btn-info' %></td>
-        <td><%= link_to 'Edit', edit_admin_page_group_path(page_group), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Edit', [:edit, :admin, page_group], class: 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', [:admin, page_group], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Page Group', new_admin_page_group_path, class: 'btn btn-primary' %>
+<%= link_to 'New Page Group', [:new, :admin, :page_group], class: 'btn btn-primary' %>

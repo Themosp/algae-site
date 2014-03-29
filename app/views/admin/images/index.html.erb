@@ -21,7 +21,7 @@
         <td><%= image.position_for_small %></td>
         <td><%= image.position_for_very_small %></td>
         <td><%= link_to 'Show', [:admin, image], class: 'btn btn-info' %></td>
-        <td><%= link_to 'Edit', edit_admin_image_path(image), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Edit', [:edit, :admin, image], class: 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', [:admin, image], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Image', new_admin_image_path, class: 'btn btn-primary' %>
+<%= link_to 'New Image', [:new, :admin, :image], class: 'btn btn-primary' %>
