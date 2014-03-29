@@ -10,17 +10,16 @@ AlgaeSite::Application.routes.draw do
   end
 
   namespace :admin do
-    scope '(/:for_locale)', constraints: { for_locale: /\w\w(_\w\w)?/ } do
+    scope '/:for_locale', constraints: { for_locale: /(#{I18n.available_locales.join('|')})/ } do
       root 'base#index'
-    end
-
-    scope '/:for_locale', constraints: { for_locale: /\w\w(_\w\w)?/ } do
       resources :pages
       resources :page_groups
     end
+
+    get '/', to: redirect("/admin/#{I18n.default_locale}")
   end
 
-  scope '(:locale)', constraints: { locale: /\w\w(_\w\w)?/ } do
+  scope '(:locale)', constraints: { locale: /(#{I18n.available_locales.join('|')})/ } do
     resources :pages, only: [ :show ]
     resources :page_groups, path: '', only: [ :show ]
   end
