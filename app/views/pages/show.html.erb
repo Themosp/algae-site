@@ -1,6 +1,6 @@
 <div class="body-container">
     <div class="main-slide"
-         style="background-image: url(<%= image_url @page.image %>); width: <%= @page.big_image ? '66%' : '33%' %>; background-position: <%= @page.image_position %>px; margin-right: 1%;">
+         style="background-image: url(<%= image_url(@page.image.image_attachment) if @page.image.present? %>); width: <%= @page.big_image ? '66%' : '33%' %>; margin-right: 1%; <%= @page.big_image ? 'background-position: center;' : @page.image.position_for_small_style if @page.image.present? %>">
         <%= link_to @page.image_link do %>
             <span class="table-cell"><%= @page.title %></span>
         <% end %>

@@ -8,7 +8,7 @@
       <th>Title</th>
       <th>Title link</th>
       <th>Big image</th>
-      <th>Image position</th>
+      <th>Image</th>
       <th>Image link</th>
       <th></th>
       <th></th>
@@ -25,7 +25,7 @@
         <td><%= page.title %></td>
         <td><%= page.title_link %></td>
         <td><%= page.big_image %></td>
-        <td><%= page.image_position %></td>
+        <td><%= link_to page.image.title, [:admin, page.image] if page.image.present? %></td>
         <td><%= page.image_link %></td>
         <td><%= link_to 'Show', [:admin, page], class: 'btn btn-info' %></td>
         <td><%= link_to 'Show in public', page_path(page, for_locale: nil, locale: params[:for_locale]), class: 'btn btn-info' %></td>

@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Used in pages:</strong>
+  <%= @image.pages.map { |page| link_to(page.title, [:admin, page]) }.join(', ').html_safe %>
+</p>
+
+<p>
   <strong>Image attachment:</strong>
   <%= image_tag @image.image_attachment %>
 </p>

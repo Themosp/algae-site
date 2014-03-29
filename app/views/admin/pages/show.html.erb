@@ -12,17 +12,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @page.image %>
+  <%= link_to @page.image.title, [:admin, @page.image] if @page.image.present? %>
 </p>
 
 <p>
   <strong>Big image:</strong>
   <%= @page.big_image %>
-</p>
-
-<p>
-  <strong>Image position:</strong>
-  <%= @page.image_position %>
 </p>
 
 <p>

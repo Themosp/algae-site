@@ -5,4 +5,6 @@ class Page < ActiveRecord::Base
 
   has_many :page_groups_page
   has_many :page_groups, through: :page_groups_page
+
+  belongs_to :image
 end
