@@ -56,7 +56,7 @@ module Admin
 
     # Only allow a trusted parameter "white list" through.
     def page_group_params
-      params.require(:page_group).permit(:title, { page_ids: [] })
+      params.require(:page_group).permit(:title, page_groups_page_attributes: [ :id, :page_id, :order, :_destroy ])
     end
 
     def set_all_pages
