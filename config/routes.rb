@@ -2,13 +2,6 @@ AlgaeSite::Application.routes.draw do
 
   devise_for :users
 
-  root 'static#index'
-
-  scope module: :static do
-    get :index
-    get :sitemap
-  end
-
   namespace :admin do
     scope '/:for_locale', constraints: { for_locale: /(#{I18n.available_locales.join('|')})/ } do
       root 'base#index'
@@ -22,6 +15,13 @@ AlgaeSite::Application.routes.draw do
   end
 
   scope '(:locale)', constraints: { locale: /(#{I18n.available_locales.join('|')})/ } do
+    root 'static#index'
+
+    scope module: :static do
+      get :index
+      get :sitemap
+    end
+
     resources :pages, only: [ :show ]
     resources :page_groups, path: '', only: [ :show ]
   end
