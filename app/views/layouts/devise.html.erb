@@ -16,7 +16,7 @@
     <nav class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <%= link_to [:admin, :root], class: 'navbar-brand' do %>
+            <%= link_to admin_root_path(for_locale: params[:for_locale] || I18n.default_locale), class: 'navbar-brand' do %>
                 Algae Farms <small>Admin</small>
             <% end %>
         </div>
