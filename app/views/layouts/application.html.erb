@@ -14,7 +14,7 @@
 <div class="container">
     <nav class="menu">
         <div class="logo">
-            <%= link_to image_tag('logo.png', width: 140, height: 60), root_path %>
+            <%= link_to image_tag('logo.png', width: 140, height: 60), Static.where(action: 'home').first %>
         </div>
 
         <ul>

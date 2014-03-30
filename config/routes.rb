@@ -15,8 +15,11 @@ AlgaeSite::Application.routes.draw do
     get '/', to: redirect("/admin/#{I18n.default_locale}")
   end
 
+  root to: redirect('/home')
+
   scope '(:locale)', constraints: { locale: /(#{I18n.available_locales.join('|')})/ } do
-    root 'static#index'
+
+    get '/', to: redirect('/%{locale}/home')
 
     scope module: :static do
       get :home
