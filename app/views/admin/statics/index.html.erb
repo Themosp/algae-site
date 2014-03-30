@@ -17,6 +17,7 @@
         <td><%= static.title %></td>
         <td><%= static.action %></td>
         <td><%= link_to 'Show', [:admin, static], class: 'btn btn-info' %></td>
+        <td><%= link_to 'View in pubic', static_path(static, for_locale: nil, locale: params[:for_locale]), class: 'btn btn-info' %></td>
         <td><%= link_to 'Edit', [:edit, :admin, static], class: 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', [:admin, static], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>

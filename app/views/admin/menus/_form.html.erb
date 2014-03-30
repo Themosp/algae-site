@@ -27,7 +27,7 @@
                 <%= fields.hidden_field :order %>
                 <%= fields.hidden_field :depth %>
 
-                <%= polymorphic_select(fields, :linkable, (Page.all + PageGroup.all), :title, { include_blank: true }, class: 'form-control') %>
+                <%= polymorphic_select(fields, :linkable, (Page.all + PageGroup.all + Static.all), :title, { include_blank: true }, class: 'form-control') %>
 
                 <button type="button" data-ordered="up" disabled="disabled" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-up"></span></button>
                 <button type="button" data-ordered="down" disabled="disabled" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-down"></span></button>

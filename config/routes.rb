@@ -25,6 +25,7 @@ AlgaeSite::Application.routes.draw do
 
     resources :pages, only: [ :show ]
     resources :page_groups, path: '', only: [ :show ]
+    resources :statics, path: '', only: [ :show ]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
