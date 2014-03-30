@@ -1,0 +1,9 @@
+<h1>Showing upload</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @upload.title %>
+</p>
+
+<%= link_to 'Edit', [:edit, :admin, @upload], class: 'btn btn-warning' %>
+<%= link_to 'Back', [:admin, :uploads], class: 'btn btn-default' %>

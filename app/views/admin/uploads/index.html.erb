@@ -1,0 +1,27 @@
+<h1>Listing uploads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @uploads.each do |upload| %>
+      <tr>
+        <td><%= upload.title %></td>
+        <td><%= link_to 'Show', [:admin, upload], class: 'btn btn-info' %></td>
+        <td><%= link_to 'Edit', [:edit, :admin, upload], class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', [:admin, upload], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Upload', [:new, :admin, :upload], class: 'btn btn-primary' %>

@@ -10,6 +10,7 @@ AlgaeSite::Application.routes.draw do
       resources :images
       resources :menus
       resources :statics
+      resources :uploads
     end
 
     get '/', to: redirect("/admin/#{I18n.default_locale}")
