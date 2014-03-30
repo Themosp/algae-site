@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330123737) do
+ActiveRecord::Schema.define(version: 20140330124254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,17 @@ ActiveRecord::Schema.define(version: 20140330123737) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "upload_translations", force: true do |t|
+    t.integer  "upload_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+  end
+
+  add_index "upload_translations", ["locale"], name: "index_upload_translations_on_locale", using: :btree
+  add_index "upload_translations", ["upload_id"], name: "index_upload_translations_on_upload_id", using: :btree
 
   create_table "uploads", force: true do |t|
     t.string   "title"
