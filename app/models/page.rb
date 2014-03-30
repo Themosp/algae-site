@@ -1,4 +1,6 @@
 class Page < ActiveRecord::Base
+  include Concerns::Linkable
+
   include Concerns::TransliteratedFriendlyId
   friendly_id :title, use: [:slugged, :finders]
   translates :title, :body

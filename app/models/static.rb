@@ -1,4 +1,6 @@
 class Static < ActiveRecord::Base
+  include Concerns::Linkable
+
   translates :title
 
   has_many :linkables_menus
@@ -6,7 +8,7 @@ class Static < ActiveRecord::Base
 
   default_scope { order(:action) }
 
-  def to_param
-    action
+  def url
+    [ action ]
   end
 end

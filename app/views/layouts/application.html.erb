@@ -14,7 +14,7 @@
 <div class="container">
     <nav class="menu">
         <div class="logo">
-            <%= link_to image_tag('logo.png', width: 140, height: 60), Static.where(action: 'home').first %>
+            <%= link_to image_tag('logo.png', width: 140, height: 60), Static.where(action: 'home').first.url %>
         </div>
 
         <ul>
@@ -23,7 +23,7 @@
                 <% more_depth = next_item.present? && next_item.depth > current_item.depth %>
                 <% less_depth = next_item.present? && next_item.depth < current_item.depth %>
                 <li class="<%= 'last' if less_depth %>">
-                    <%= link_to current_item.linkable.title, current_item.linkable %>
+                    <%= link_to current_item.linkable.title, current_item.linkable.url, current_item.linkable.link_options %>
                     <%= '<nav><ul>'.html_safe if more_depth %>
                     <%= '</ul></nav>'.html_safe if less_depth %>
                 </li>
@@ -46,7 +46,7 @@
     <nav class="menu-bottom">
         <% @bottom_menu = Menu.where(title: 'Bottom').first %>
         <% @bottom_menu.linkables_menus.each_with_index do |current_item, index| %>
-            <%= link_to current_item.linkable.title, current_item.linkable %>
+            <%= link_to current_item.linkable.title, current_item.linkable.url, current_item.linkable.link_options %>
             <%= '/' unless @bottom_menu.linkables_menus.size - 1 == index %>
         <% end %>
     </nav>

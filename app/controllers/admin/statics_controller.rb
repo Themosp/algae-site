@@ -50,7 +50,7 @@ module Admin
 
     # Use callbacks to share common setup or constraints between actions.
     def set_static
-      @static = Static.where(action: params[:id]).first
+      @static = Static.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

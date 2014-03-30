@@ -15,7 +15,7 @@
                 <% more_depth = next_item.present? && next_item.depth > current_item.depth %>
                 <% less_depth = next_item.present? && next_item.depth < current_item.depth %>
                 <li>
-                    <%= link_to current_item.linkable.title, current_item.linkable %>
+                    <%= link_to current_item.linkable.title, current_item.linkable.url, current_item.linkable.link_options %>
                     <%= '<ul>'.html_safe if more_depth %>
                     <%= '</ul>'.html_safe if less_depth %>
                 </li>
