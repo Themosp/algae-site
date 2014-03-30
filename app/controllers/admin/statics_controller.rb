@@ -4,7 +4,7 @@ module Admin
 
     # GET /statics
     def index
-      @statics = Static.all.order(:id)
+      @statics = Static.all
     end
 
     # GET /statics/1

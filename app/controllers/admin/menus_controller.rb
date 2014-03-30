@@ -4,7 +4,7 @@ module Admin
 
     # GET /menus
     def index
-      @menus = Menu.all.order(:id)
+      @menus = Menu.all
     end
 
     # GET /menus/1

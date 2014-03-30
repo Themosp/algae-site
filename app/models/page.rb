@@ -12,4 +12,6 @@ class Page < ActiveRecord::Base
   has_many :back_linked_pages, class_name: 'Page', as: :back_link
 
   has_many :linkables_menus
+
+  default_scope { order(:id).includes(:translations, :image, :page_groups) }
 end

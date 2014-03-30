@@ -6,6 +6,8 @@ class Image < ActiveRecord::Base
 
   has_many :pages
 
+  default_scope { order(:id).includes(:translations) }
+
   def position_for_small_style
     if position_for_small.present?
       "background-position: #{position_for_small}px"

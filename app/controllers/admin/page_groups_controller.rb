@@ -5,7 +5,7 @@ module Admin
 
     # GET /admin/page_groups
     def index
-      @page_groups = PageGroup.all.order(:id)
+      @page_groups = PageGroup.all
     end
 
     # GET /admin/page_groups/1
@@ -60,7 +60,7 @@ module Admin
     end
 
     def set_all_pages
-      @all_pages = Page.all.order(:id)
+      @all_pages = Page.all
     end
   end
 end

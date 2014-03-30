@@ -1,4 +1,4 @@
-<% @home_menu = Menu.includes(linkables_menus: { linkable: :translations }).where(title: 'Homepage').first %>
+<% @home_menu = Menu.where(title: 'Homepage').first %>
 
 <div class="body-container">
     <div class="main-slide horizontal-slide slide-hover-company"

@@ -6,7 +6,7 @@ module Admin
 
     # GET /pages
     def index
-      @pages = Page.all.order(:id)
+      @pages = Page.all
     end
 
     # GET /pages/1
@@ -56,11 +56,11 @@ module Admin
     end
 
     def set_all_images
-      @all_images = Image.all.order(:id)
+      @all_images = Image.all
     end
 
     def set_all_back_links
-      @all_back_links = Page.all.order(:id) + PageGroup.all.order(:id)
+      @all_back_links = Page.all + PageGroup.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -18,7 +18,7 @@
         </div>
 
         <ul>
-            <% @top_menu = Menu.includes(linkables_menus: { linkable: :translations }).where(title: 'Top').first %>
+            <% @top_menu = Menu.where(title: 'Top').first %>
             <% @top_menu.linkables_menus.zip(@top_menu.linkables_menus[1, @top_menu.linkables_menus.size]).each do |current_item, next_item| %>
                 <% more_depth = next_item.present? && next_item.depth > current_item.depth %>
                 <% less_depth = next_item.present? && next_item.depth < current_item.depth %>
@@ -44,7 +44,7 @@
     <div class="clear"></div>
 
     <nav class="menu-bottom">
-        <% @bottom_menu = Menu.includes(linkables_menus: { linkable: :translations }).where(title: 'Bottom').first %>
+        <% @bottom_menu = Menu.where(title: 'Bottom').first %>
         <% @bottom_menu.linkables_menus.each_with_index do |current_item, index| %>
             <%= link_to current_item.linkable.title, current_item.linkable %>
             <%= '/' unless @bottom_menu.linkables_menus.size - 1 == index %>
