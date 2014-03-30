@@ -55,7 +55,7 @@ module Admin
 
     # Only allow a trusted parameter "white list" through.
     def upload_params
-      params.require(:upload).permit(:title)
+      params.require(:upload).permit(:title, :file_attachment)
     end
   end
 end

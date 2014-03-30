@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330124254) do
+ActiveRecord::Schema.define(version: 20140330124749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "file_attachments", force: true do |t|
+    t.integer "upload_id"
+    t.string  "style"
+    t.binary  "file_contents"
+  end
+
+  add_index "file_attachments", ["upload_id"], name: "index_file_attachments_on_upload_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -163,6 +171,10 @@ ActiveRecord::Schema.define(version: 20140330124254) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file_attachment_file_name"
+    t.string   "file_attachment_content_type"
+    t.integer  "file_attachment_file_size"
+    t.datetime "file_attachment_updated_at"
   end
 
   create_table "users", force: true do |t|
