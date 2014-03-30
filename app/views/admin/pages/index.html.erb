@@ -28,7 +28,7 @@
         <td><%= link_to page.back_link.title, [:admin, page.back_link] if page.back_link.present? %></td>
         <td><%= link_to page.image.title, [:admin, page.image] if page.image.present? %></td>
         <td><%= link_to 'Show', [:admin, page], class: 'btn btn-info' %></td>
-        <td><%= link_to 'View in public', page_path(page, for_locale: nil, locale: params[:for_locale]), class: 'btn btn-info' %></td>
+        <td><%= link_to 'View in public', polymorphic_path(page.url, for_locale: nil, locale: params[:for_locale]), class: 'btn btn-info' %></td>
         <td><%= link_to 'Edit', [:edit, :admin, page], class: 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', [:admin, page], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
