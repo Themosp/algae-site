@@ -1,22 +1,24 @@
+<% @home_menu = Menu.includes(linkables_menus: { linkable: :translations }).where(title: 'Homepage').first %>
+
 <div class="body-container">
     <div class="main-slide horizontal-slide slide-hover-company"
          style="background-image: url(<%= image_url 'green_part1.jpg' %>);">
-        <a href="<%= page_group_path 'company' %>">
-            <span class="table-cell">Η εταιρεία</span>
-        </a>
+        <%= link_to @home_menu.linkables_menus[0].linkable do %>
+            <span class="table-cell"><%= @home_menu.linkables_menus[0].linkable.title %></span>
+        <% end %>
     </div>
 
     <div class="main-slide horizontal-slide slide-hover-financial"
          style="background-image: url(<%= image_url 'green_part2.jpg' %>);">
-        <a href="<%= page_path 'invest' %>">
-            <span class="table-cell">Ενημέρωση επενδυτών</span>
-        </a>
+      <%= link_to @home_menu.linkables_menus[1].linkable do %>
+            <span class="table-cell"><%= @home_menu.linkables_menus[1].linkable.title %></span>
+      <% end %>
     </div>
 
     <div class="main-slide horizontal-slide slide-hover-products"
          style="background-image: url(<%= image_url 'green_part3.jpg' %>);">
-        <a href="<%= page_group_path 'products' %>">
-            <span class="table-cell">Προϊόντα</span>
-        </a>
+      <%= link_to @home_menu.linkables_menus[2].linkable do %>
+            <span class="table-cell"><%= @home_menu.linkables_menus[2].linkable.title %></span>
+      <% end %>
     </div>
 </div>
