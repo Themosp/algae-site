@@ -19,7 +19,7 @@ AlgaeSite::Application.routes.draw do
     root 'static#index'
 
     scope module: :static do
-      get :index
+      get :home
       get :sitemap
     end
 
