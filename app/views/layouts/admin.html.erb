@@ -28,16 +28,17 @@
             <li><%= link_to 'Menus', [:admin, :menus] %></li>
             <li><%= link_to 'Statics', [:admin, :statics] %></li>
             <li><%= link_to 'Uploads', [:admin, :uploads] %></li>
+            <li><%= link_to 'Locales', [:admin, :locales] %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Content language: <%= image_tag language_flag(Globalize.locale), size: '18x18' %> <%= language_name Globalize.locale %> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Content language: <%= image_tag language_flag(Locale.current_globalize.code.to_sym), size: '18x18' %> <%= Locale.current_globalize.title %> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <% I18n.available_locales.each do |locale| %>
+                    <% Locale.all.each do |locale| %>
                         <li>
-                            <%= link_to params.merge(for_locale: locale) do %>
-                                <%= image_tag language_flag(locale), size: '18x18' %>
-                                <%= language_name(locale) %>
+                            <%= link_to params.merge(for_locale: locale.code) do %>
+                                <%= image_tag language_flag(locale.code.to_sym), size: '18x18' %>
+                                <%= locale.title %>
                             <% end %>
                         </li>
                     <% end %>

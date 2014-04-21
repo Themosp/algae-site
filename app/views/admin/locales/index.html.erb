@@ -1,0 +1,31 @@
+<h1>Listing locales</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Code</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locales.each do |locale| %>
+      <tr>
+        <td><%= locale.title %></td>
+        <td><%= locale.code %></td>
+        <td><%= locale.active %></td>
+        <td><%= link_to 'Show', [:admin, locale], class: 'btn btn-info' %></td>
+        <td><%= link_to 'Edit', [:edit, :admin, locale], class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', [:admin, locale], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Locale', [:new, :admin, :locale], class: 'btn btn-primary' %>
