@@ -19,6 +19,8 @@ AlgaeSite::Application.routes.draw do
 
   root to: redirect('/home')
 
+  get '/robots.:format' => 'application#robots'
+
   scope '(:locale)', constraints: { locale: /(#{I18n.available_locales.join('|')})/ } do
 
     get '/', to: redirect('/%{locale}/home')
