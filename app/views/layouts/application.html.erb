@@ -17,6 +17,13 @@
             <%= link_to image_tag('logo.png', width: 140, height: 60), Static.where(action: 'home').first.url %>
         </div>
 
+        <div class="languages">
+            <% locales = Locale.all.where(active: true) %>
+            <% locales.each do |locale| %>
+                <%= link_to image_tag(language_flag(locale.code.to_sym), size: '16x16'), params.merge(locale: locale.code), class: ('active' if locale == Locale.current) %>
+            <% end unless locales.size < 2 %>
+        </div>
+
         <ul>
             <% @top_menu = Menu.where(title: 'Top').first %>
             <% @top_menu.linkables_menus.zip(@top_menu.linkables_menus[1, @top_menu.linkables_menus.size]).each do |current_item, next_item| %>
