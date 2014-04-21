@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @locale.title %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @locale.code %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @locale.active %>
+</p>
+
+<%= link_to 'Edit', [:edit, :admin, @locale], class: 'btn btn-warning' %>
+<%= link_to 'Back', [:admin, :locales], class: 'btn btn-default' %>

@@ -1,0 +1,27 @@
+<h1>Listing menus</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <td><%= menu.title %></td>
+        <td><%= link_to 'Show', [:admin, menu], class: 'btn btn-info' %></td>
+        <td><%= link_to 'Edit', [:edit, :admin, menu], class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', [:admin, menu], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menu', [:new, :admin, :menu], class: 'btn btn-primary' %>

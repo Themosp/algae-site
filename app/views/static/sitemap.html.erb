@@ -1,6 +1,6 @@
 <div class="body-container">
     <div class="main-slide"
-         style="background-image: url(<%= image_url 'vials.jpg' %>); width: 66%; margin-right: 1%;">
+         style="background-image: url(<%= image_url Image.where(image_attachment_file_name: 'vials.jpg').first.image_attachment %>); width: 66%; margin-right: 1%;">
         <a href="">
             <span class="table-cell">Sitemap</span>
         </a>
@@ -10,42 +10,16 @@
         <h1>Sitemap</h1>
 
         <ul>
-            <li><%= link_to 'Αρχική', index_path %></li>
-            <li>
-                <%= link_to 'Η εταιρεία', company_path %>
-                <ul>
-                    <li><%= link_to 'Καλώς ήρθατε στην Algae Farms', company_welcome_path %></li>
-                    <li><%= link_to 'Το όραμα μας', company_vision_path %></li>
-                    <li><%= link_to 'Οι εγκαταστάσεις', company_facilities_path %></li>
-                </ul>
-            </li>
-            <li><%= link_to 'Πληροφοριακό ένταξης', '/pdf/placeholder.pdf' %></li>
-            <li><%= link_to 'Ενημέρωση επενδυτών', invest_path %>
-                <ul>
-                    <li><%= link_to 'Εξυπηρέτηση μετόχων', shareholders_path %></li>
-                    <li><%= link_to 'Εταιρική διακυβέρνηση', govern_path %></li>
-                </ul>
-            </li>
-            <li><%= link_to 'Προϊόντα', products_path %>
-                <ul>
-                    <li><%= link_to 'Pellets άλγης', products_pellets_path %></li>
-                    <li><%= link_to 'Βιοέλαιο άλγης', products_oil_path %></li>
-                    <li><%= link_to 'Briquettes άλγης', products_briquettes_path %></li>
-                    <li><%= link_to 'Πιστοποιήσεις', products_certifications_path %>
-                        <ul>
-                            <li><%= link_to 'ENplus', products_certifications_en_plus_path %></li>
-                            <li><%= link_to 'ISCC', products_certifications_iscc_path %></li>
-                            <li><%= link_to 'ISO 9000', products_certifications_iso_9000_path %></li>
-                            <li><%= link_to 'ISO 14000', products_certifications_iso_14000_path %></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><%= link_to 'Ευκαιρίες καριέρας', careers_path %></li>
-            <li><%= link_to 'Χρήσιμοι σύνδεσμοι', links_path %></li>
-            <li><%= link_to 'Επικοινωνία', contact_path %></li>
-            <li><%= link_to 'Sitemap', sitemap_path %></li>
-            <li><%= link_to 'Όροι χρήσης', terms_path %></li>
+            <% @sitemap_menu = Menu.where(title: 'Sitemap').first %>
+            <% @sitemap_menu.linkables_menus.zip(@sitemap_menu.linkables_menus[1, @sitemap_menu.linkables_menus.size]).each do |current_item, next_item| %>
+                <% more_depth = next_item.present? && next_item.depth > current_item.depth %>
+                <% less_depth = next_item.present? && next_item.depth < current_item.depth %>
+                <li>
+                    <%= link_to current_item.linkable.title, current_item.linkable.url, current_item.linkable.link_options %>
+                    <%= '<ul>'.html_safe if more_depth %>
+                    <%= '</ul>'.html_safe if less_depth %>
+                </li>
+            <% end %>
         </ul>
     </div>
 </div>

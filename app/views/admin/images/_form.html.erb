@@ -1,0 +1,37 @@
+<%= form_for([:admin, @image], :html => { :multipart => true }) do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_attachment %><br>
+    <%= f.file_field :image_attachment, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :position_for_small %><br>
+    <%= f.number_field :position_for_small, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :position_for_very_small %><br>
+    <%= f.number_field :position_for_very_small, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

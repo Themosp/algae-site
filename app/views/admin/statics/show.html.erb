@@ -1,0 +1,14 @@
+<h1>Showing static</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @static.title %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @static.action %>
+</p>
+
+<%= link_to 'Edit', [:edit, :admin, @static], class: 'btn btn-warning' %>
+<%= link_to 'Back', [:admin, :statics], class: 'btn btn-default' %>

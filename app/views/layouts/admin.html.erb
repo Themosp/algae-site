@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= render 'common/analytics' %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Algae Farms Admin</title>
+    <%= stylesheet_link_tag 'admin', media: 'all' %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <%= link_to [:admin, :root], class: 'navbar-brand' do %>
+                Algae Farms <small>Admin</small>
+            <% end %>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><%= link_to 'Pages', [:admin, :pages] %></li>
+            <li><%= link_to 'Page Groups', [:admin, :page_groups] %></li>
+            <li><%= link_to 'Images', [:admin, :images] %></li>
+            <li><%= link_to 'Menus', [:admin, :menus] %></li>
+            <li><%= link_to 'Statics', [:admin, :statics] %></li>
+            <li><%= link_to 'Uploads', [:admin, :uploads] %></li>
+            <li><%= link_to 'Locales', [:admin, :locales] %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Content language: <%= image_tag language_flag(Locale.current_globalize.code.to_sym), size: '18x18' %> <%= Locale.current_globalize.title %> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <% Locale.all.each do |locale| %>
+                        <li>
+                            <%= link_to params.merge(for_locale: locale.code) do %>
+                                <%= image_tag language_flag(locale.code.to_sym), size: '18x18' %>
+                                <%= locale.title %>
+                            <% end %>
+                        </li>
+                    <% end %>
+                </ul>
+            </li>
+            <li><%= link_to 'Sign out', [:destroy, :user, :session], :method => :delete %></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container">
+    <% if flash[:notice].present? %><div class="alert alert-info"><%= flash[:notice] %></div><% end %>
+    <% if flash[:alert].present? %><div class="alert alert-warning"><%= flash[:alert] %></div><% end %>
+
+    <%= yield %>
+</div>
+
+<%= javascript_include_tag 'admin' %>
+</body>
+</html>

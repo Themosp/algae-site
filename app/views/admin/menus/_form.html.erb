@@ -1,0 +1,48 @@
+<% @menu.linkables_menus.build %>
+<% @menu.linkables_menus.build %>
+<% @menu.linkables_menus.build %>
+
+<%= form_for([:admin, @menu]) do |f| %>
+  <% if @menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+
+      <ul>
+      <% @menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+    <div class="form-group" data-ordered="true" data-nested="true">
+        <%= f.label :linkables_menus %><br>
+        <%= f.fields_for :linkables_menus do |fields| %>
+            <fieldset class="form-inline form-group">
+                <%= fields.hidden_field :order %>
+                <%= fields.hidden_field :depth %>
+
+                <%= polymorphic_select(fields, :linkable, (Concerns::Linkable.all_linkables), :title, { include_blank: true }, class: 'form-control') %>
+
+                <button type="button" data-ordered="up" disabled="disabled" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-up"></span></button>
+                <button type="button" data-ordered="down" disabled="disabled" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-down"></span></button>
+                <button type="button" data-nested="left" disabled="disabled" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span></button>
+                <button type="button" data-nested="right" disabled="disabled" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-right"></span></button>
+
+                <% if fields.object.persisted? %>
+                    <%= fields.check_box :_destroy %>
+                    <%= fields.label :_destroy %>
+                <% end %>
+            </fieldset>
+        <% end %>
+    </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

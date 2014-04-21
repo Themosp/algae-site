@@ -1,0 +1,5 @@
+User-Agent: *
+<% Locale.where(active: false).each do |locale| %>
+Disallow: /<%= locale.code %>/
+<% end %>
+Disallow: /admin/

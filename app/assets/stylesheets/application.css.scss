@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require static
  */
 
 @import "common/colors";
@@ -35,13 +35,28 @@
   padding-bottom: 5px;
   border-bottom: solid 1px $grey;
 
+  .languages {
+    margin-top: 15px;
+    padding-right: 8px;
+    font-weight: bold;
+
+    a {
+      padding: 0px 2px;
+
+      &.active,
+      &:hover {
+        border-bottom: solid 2px $light-green;
+      }
+    }
+  }
+
   > ul {
     margin: 0;
 
     > li {
       display: inline-block;
       margin-left: 5px;
-      margin-top: 34px;
+      margin-top: 10px;
 
       a {
         display: block;
@@ -58,7 +73,7 @@
         display: none;
         position: absolute;
         background-color: $light-green;
-        width: 350px;
+        width: 300px;
         text-align: left;
 
         ul {

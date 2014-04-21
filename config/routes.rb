@@ -1,42 +1,39 @@
 AlgaeSite::Application.routes.draw do
 
-  scope module: :static do
-    get :index
-    get :company
+  devise_for :users
 
-    namespace :company do
-      get :welcome
-      get :vision
-      get :facilities
+  namespace :admin do
+    scope '/:for_locale', constraints: { for_locale: /(#{I18n.available_locales.join('|')})/ } do
+      root 'base#index'
+      resources :pages
+      resources :page_groups
+      resources :images
+      resources :menus
+      resources :statics
+      resources :uploads
+      resources :locales
     end
 
-    get :invest
-    get :shareholders
-    get :govern
-    get :products
-
-    namespace :products do
-      get :pellets
-      get :oil
-      get :briquettes
-      get :certifications
-
-      namespace :certifications do
-        get :en_plus
-        get :iscc
-        get :iso_9000
-        get :iso_14000
-      end
-    end
-
-    get :links
-    get :contact
-    get :careers
-    get :sitemap
-    get :terms
+    get '/', to: redirect("/admin/#{I18n.default_locale}")
   end
 
-  root 'static#index'
+  root to: redirect('/home')
+
+  get '/robots.:format' => 'application#robots'
+
+  scope '(:locale)', constraints: { locale: /(#{I18n.available_locales.join('|')})/ } do
+
+    get '/', to: redirect('/%{locale}/home')
+
+    scope module: :static do
+      get :home
+      get :sitemap
+    end
+
+    resources :pages, only: [ :show ]
+    resources :page_groups, path: '', only: [ :show ]
+    resources :statics, path: '', only: [ :show ]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
